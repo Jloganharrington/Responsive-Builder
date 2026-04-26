@@ -22,6 +22,7 @@ const PRODUCTS: Record<string, {
   totalRCV: string;
   upgradeCost: string;
   features: string[];
+  insulationBenefits?: string[];
   link: string;
   badgeIcon: React.ReactNode;
 }> = {
@@ -65,9 +66,12 @@ const PRODUCTS: Record<string, {
       '5/8" panel projection — deeper shadow lines than Ovation',
       "T2 Locking System",
       "Hang-Tough™ Technology",
-      "SolarDefense Reflective Technology (9 deep colors)",
-      "Duranyl 5000® Protection System",
       "VIP Limited Lifetime Warranty",
+    ],
+    insulationBenefits: [
+      "Added R-Value — The continuous foam backing adds meaningful thermal resistance to your exterior wall assembly, reducing heat transfer and improving year-round energy efficiency.",
+      "Impact Resistance — The rigid foam backer absorbs impact energy, making the panel significantly more resistant to dents, dings, and hail strikes compared to hollow-back vinyl siding.",
+      "Reduced Exterior Noise — The insulation layer dampens sound transmission from wind, rain, and street noise, noticeably quieting the interior of the home.",
     ],
     link: "https://www.plygem.com/mastic/siding/carvedwood-44/?varid=double-4",
     badgeIcon: <Star size={14} />,
@@ -90,9 +94,12 @@ const PRODUCTS: Record<string, {
       "Patented T3-Lok® panel system — tightens under pressure",
       "Double-thick nail hem",
       "Hang-Tough™ Technology",
-      "Duranyl® 5000 Protection System",
-      "Cedar Colors with Kynar® 500 Protection (select colors)",
       "VIP Limited Lifetime Warranty",
+    ],
+    insulationBenefits: [
+      "Added R-Value — The continuous foam backing adds meaningful thermal resistance to your exterior wall assembly, reducing heat transfer and improving year-round energy efficiency.",
+      "Impact Resistance — The rigid foam backer absorbs impact energy, making the panel significantly more resistant to dents, dings, and hail strikes compared to hollow-back vinyl siding.",
+      "Reduced Exterior Noise — The insulation layer dampens sound transmission from wind, rain, and street noise, noticeably quieting the interior of the home.",
     ],
     link: "https://www.plygem.com/mastic/siding/quest/?varid=double-4",
     badgeIcon: <Trophy size={14} />,
@@ -448,6 +455,33 @@ export default function Portal() {
                       </li>
                     ))}
                   </ul>
+
+                  {/* Insulation Benefits */}
+                  {tier.insulationBenefits && (
+                    <div style={{ marginBottom: 20 }}>
+                      <div style={{
+                        fontSize: 11,
+                        fontWeight: 700,
+                        color: "#6DB33F",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.07em",
+                        paddingTop: 12,
+                        paddingBottom: 8,
+                        borderTop: "1px solid #D4E8C2",
+                        marginBottom: 10,
+                      }}>
+                        Full Back Insulation Benefits
+                      </div>
+                      <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                        {tier.insulationBenefits.map((b) => (
+                          <li key={b} style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 13, color: "#3D3D3D", marginBottom: 8, lineHeight: 1.5 }}>
+                            <ChevronRight size={14} color="#6DB33F" style={{ flexShrink: 0, marginTop: 2 }} />
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
                   <a
                     href={tier.link}
