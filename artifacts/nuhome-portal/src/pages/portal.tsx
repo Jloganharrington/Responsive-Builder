@@ -36,7 +36,7 @@ const PRODUCTS: Record<string, {
     thickness: '.042"',
     upgradeLine: "Upgrade cost: $0 — fully covered by your State Farm approval",
     outOfPocket: "$0.00",
-    totalRCV: "$15,834.14",
+    totalRCV: "$15,834.14 (RCV)",
     upgradeCost: "$0.00",
     features: [
       "Wind rated: 129 MPH",
@@ -442,7 +442,7 @@ export default function Portal() {
                       Your out-of-pocket upgrade: <strong>{tier.outOfPocket}</strong>
                     </div>
                     <div style={{ fontSize: 14, fontWeight: 700, color: "#2A2A2A" }}>
-                      Total Project RCV: {tier.totalRCV}
+                      Total Project Cost: {tier.totalRCV}
                     </div>
                   </div>
 
@@ -825,7 +825,7 @@ export default function Portal() {
               </div>
               <div>
                 <div style={{ fontSize: 11, fontWeight: 600, color: "#6B6B6B", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 3 }}>
-                  Total Project RCV
+                  Total Project Cost
                 </div>
                 <div style={{ fontSize: 16, fontWeight: 800, color: "#2A2A2A" }} data-testid="summary-total-rcv">
                   {product ? product.totalRCV : "—"}
