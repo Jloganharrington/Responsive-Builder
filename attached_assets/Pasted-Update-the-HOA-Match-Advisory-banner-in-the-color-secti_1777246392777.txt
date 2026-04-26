@@ -1,0 +1,61 @@
+Update the HOA Match Advisory banner in the color section only. 
+Do not change any other part of the application.
+
+Add a color reference block INSIDE the existing HOA Match Advisory 
+banner, positioned below the advisory text and above the color grid.
+
+---
+
+GRADIENT REFERENCE BLOCK:
+
+Create a horizontal color bar that is:
+- Full width of the banner on mobile
+- 60% width centered on desktop
+- Height: 64px
+- Border radius: 8px
+- Border: 1px solid rgba(0,0,0,0.15)
+
+The bar is a CSS linear-gradient using these stops, left to right,
+representing the tonal variation visible in Mr. Gunn's existing 
+aluminum siding — slightly cooler and lighter at the edges, 
+warmest and most saturated in the center:
+
+linear-gradient(
+  to right,
+  #C8BAA2,    /* light edge — slightly cooler */
+  #C2AD92,    /* warm center-left */
+  #BEA888,    /* estimated true color — center anchor */
+  #C2AD92,    /* warm center-right */
+  #C8BAA2     /* light edge — slightly cooler */
+)
+
+Below the gradient bar, display a small centered marker line 
+(a 2px wide, 12px tall dark grey #3D3D3D vertical tick mark) 
+positioned at the exact horizontal center of the bar, with a 
+small label beneath it reading:
+"▲ Estimated Current Siding Color"
+Style the label in #3D3D3D, font-size: 11px, font-weight: 600,
+text-align: center.
+
+Below the label, add a single line of helper text in #2A2A2A, 
+font-size: 12px, italic:
+"Select a color above that closely matches this tone for 
+HOA compliance."
+
+---
+
+WRAPPER STYLING:
+
+Wrap the entire gradient block in a div with:
+- Background: rgba(255,255,255,0.5)
+- Border radius: 8px
+- Padding: 12px
+- Margin-top: 12px
+- A small header label above the bar in #2A2A2A, 
+  font-size: 12px, font-weight: 700, uppercase, 
+  letter-spacing: 0.05em, reading:
+  "YOUR EXISTING SIDING — COLOR REFERENCE"
+
+Keep all other HOA banner text, badge styling, and the 
+#E8A020 banner background exactly as they are.
+Do not modify any other section of the application.
