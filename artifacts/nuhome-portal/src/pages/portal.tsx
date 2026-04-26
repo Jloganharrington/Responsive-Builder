@@ -21,6 +21,8 @@ const PRODUCTS: Record<string, {
   outOfPocket: string;
   totalRCV: string;
   upgradeCost: string;
+  outOfPocketTotal: string;
+  outOfPocketSublabel: string;
   features: string[];
   insulationBenefits?: string[];
   link: string;
@@ -38,6 +40,8 @@ const PRODUCTS: Record<string, {
     outOfPocket: "$0.00",
     totalRCV: "$15,834.14 (RCV)",
     upgradeCost: "$0.00",
+    outOfPocketTotal: "$2,000.00",
+    outOfPocketSublabel: "(Deductible only — no upgrade cost)",
     features: [
       "Wind rated: 129 MPH",
       "SNAP+LOCK+HOLD™ Panel Locking System",
@@ -61,6 +65,8 @@ const PRODUCTS: Record<string, {
     outOfPocket: "+$2,365.86",
     totalRCV: "$18,200.00",
     upgradeCost: "+$2,365.86",
+    outOfPocketTotal: "$4,365.86",
+    outOfPocketSublabel: "($2,000.00 deductible + $2,365.86 upgrade)",
     features: [
       "Wind rated: 153 MPH",
       '5/8" panel projection — deeper shadow lines than Ovation',
@@ -88,6 +94,8 @@ const PRODUCTS: Record<string, {
     outOfPocket: "+$4,465.86",
     totalRCV: "$20,300.00",
     upgradeCost: "+$4,465.86",
+    outOfPocketTotal: "$6,465.86",
+    outOfPocketSublabel: "($2,000.00 deductible + $4,465.86 upgrade)",
     features: [
       "Wind rated: 163 MPH — highest in the Mastic lineup",
       '3/4" panel projection — deepest shadow line available',
@@ -438,11 +446,14 @@ export default function Portal() {
                         <>Upgrade: <strong>{tier.upgradeLine}</strong></>
                       )}
                     </div>
-                    <div style={{ fontSize: 13, color: "#3D3D3D", marginBottom: 4 }}>
-                      Your out-of-pocket upgrade: <strong>{tier.outOfPocket}</strong>
-                    </div>
-                    <div style={{ fontSize: 14, fontWeight: 700, color: "#2A2A2A" }}>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: "#2A2A2A", marginBottom: 4 }}>
                       Total Project Cost: {tier.totalRCV}
+                    </div>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: "#2A2A2A", marginBottom: 2 }}>
+                      Total Out-of-Pocket Cost: {tier.outOfPocketTotal}
+                    </div>
+                    <div style={{ fontSize: 11, color: "#6B6B6B", fontStyle: "italic" }}>
+                      {tier.outOfPocketSublabel}
                     </div>
                   </div>
 
@@ -817,19 +828,24 @@ export default function Portal() {
               </div>
               <div>
                 <div style={{ fontSize: 11, fontWeight: 600, color: "#6B6B6B", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 3 }}>
-                  Your Upgrade Cost
-                </div>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "#2A2A2A" }} data-testid="summary-upgrade-cost">
-                  {product ? product.upgradeCost : "—"}
-                </div>
-              </div>
-              <div>
-                <div style={{ fontSize: 11, fontWeight: 600, color: "#6B6B6B", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 3 }}>
                   Total Project Cost
                 </div>
                 <div style={{ fontSize: 16, fontWeight: 800, color: "#2A2A2A" }} data-testid="summary-total-rcv">
                   {product ? product.totalRCV : "—"}
                 </div>
+              </div>
+              <div>
+                <div style={{ fontSize: 11, fontWeight: 600, color: "#6B6B6B", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 3 }}>
+                  Total Out-of-Pocket Cost
+                </div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "#2A2A2A" }} data-testid="summary-upgrade-cost">
+                  {product ? product.outOfPocketTotal : "—"}
+                </div>
+                {product && (
+                  <div style={{ fontSize: 11, color: "#6B6B6B", fontStyle: "italic", marginTop: 2 }}>
+                    {product.outOfPocketSublabel}
+                  </div>
+                )}
               </div>
             </div>
           </div>
