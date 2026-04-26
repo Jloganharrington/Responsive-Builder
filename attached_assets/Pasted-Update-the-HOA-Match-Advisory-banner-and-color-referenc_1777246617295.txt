@@ -1,0 +1,77 @@
+Update the HOA Match Advisory banner and color reference block only.
+Do not change any other part of the application.
+
+PROBLEM TO FIX:
+The color reference gradient is currently nested inside the amber/orange 
+(#E8A020) banner with a semi-transparent white wrapper. The orange 
+surround distorts human color perception of the greige swatch through 
+simultaneous color contrast. Fix this by separating the gradient 
+reference from the orange banner entirely.
+
+---
+
+STEP 1 — TRIM THE ORANGE BANNER:
+The #E8A020 HOA Match Advisory banner should contain ONLY:
+- The ⚠️ icon and "HOA COLOR MATCH ADVISORY" bold header
+- The two lines of advisory body text
+
+Remove the entire gradient reference block and its wrapper div 
+from inside the orange banner. The orange banner should end 
+immediately after the body text. Keep all existing #E8A020 
+styling on the banner itself.
+
+---
+
+STEP 2 — CREATE A SEPARATE COLOR REFERENCE CARD:
+Directly below the orange banner (outside it, not nested inside),
+add a new standalone card with:
+- Background: #FFFFFF
+- Border: 1px solid #D4E8C2
+- Border-radius: 8px
+- Padding: 16px
+- Margin-top: 8px
+- Box-shadow: 0 1px 4px rgba(0,0,0,0.08)
+
+Inside this card:
+
+Header label:
+"YOUR EXISTING SIDING — COLOR REFERENCE"
+Style: #2A2A2A, font-size: 12px, font-weight: 700, uppercase, 
+letter-spacing: 0.05em, margin-bottom: 10px.
+
+Gradient bar:
+- Full width on mobile, 60% width centered on desktop
+- Height: 64px
+- Border-radius: 8px
+- Border: 1px solid rgba(0,0,0,0.12)
+- CSS gradient:
+  linear-gradient(
+    to right,
+    #C8BAA2,
+    #C2AD92,
+    #BEA888,
+    #C2AD92,
+    #C8BAA2
+  )
+
+Center tick mark:
+- A 2px wide, 12px tall vertical line in #3D3D3D
+- Centered horizontally below the bar
+- Label beneath: "▲ Estimated Current Siding Color"
+  Style: #3D3D3D, font-size: 11px, font-weight: 600, 
+  text-align: center
+
+Helper text below label:
+"Select a color from the palette below that closely matches 
+this tone for HOA compliance."
+Style: #6B6B6B, font-size: 12px, font-style: italic, 
+text-align: center, margin-top: 4px.
+
+---
+
+RESULT:
+The gradient swatch now sits on pure white, giving Daniel an 
+accurate, uninfluenced perception of his existing siding color 
+with no surrounding color casting distortion.
+
+Do not modify any other section of the application.

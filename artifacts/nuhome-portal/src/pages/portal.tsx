@@ -545,7 +545,7 @@ export default function Portal() {
             borderLeft: "4px solid #2A2A2A",
             borderRadius: 8,
             padding: "16px 20px",
-            marginBottom: 28,
+            marginBottom: 8,
             display: "flex",
             alignItems: "flex-start",
             gap: 12,
@@ -558,75 +558,72 @@ export default function Portal() {
               <div style={{ fontSize: 13, color: "#2A2A2A", lineHeight: 1.6 }}>
                 Your existing siding is aluminum in a warm beige/greige tone. To maintain HOA compliance, we strongly recommend selecting a color close to your current exterior. Colors marked <strong>★ HOA Match</strong> below are the closest available matches across all product lines.
               </div>
+            </div>
+          </div>
 
-              {/* Gradient Reference Block */}
+          {/* Color Reference Card — separate from banner to avoid color cast distortion */}
+          <div style={{
+            backgroundColor: "#FFFFFF",
+            border: "1px solid #D4E8C2",
+            borderRadius: 8,
+            padding: 16,
+            marginBottom: 28,
+            boxShadow: "0 1px 4px rgba(0,0,0,0.08)",
+          }}>
+            <div style={{
+              fontSize: 12,
+              fontWeight: 700,
+              color: "#2A2A2A",
+              textTransform: "uppercase",
+              letterSpacing: "0.05em",
+              marginBottom: 10,
+            }}>
+              Your Existing Siding — Color Reference
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              {/* Gradient bar */}
               <div style={{
-                backgroundColor: "rgba(255,255,255,0.5)",
+                width: "100%",
+                maxWidth: "60%",
+                height: 64,
                 borderRadius: 8,
-                padding: 12,
-                marginTop: 12,
+                border: "1px solid rgba(0,0,0,0.12)",
+                background: "linear-gradient(to right, #C8BAA2, #C2AD92, #BEA888, #C2AD92, #C8BAA2)",
+                position: "relative",
               }}>
+                {/* Center tick mark */}
                 <div style={{
-                  fontSize: 12,
-                  fontWeight: 700,
-                  color: "#2A2A2A",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                  marginBottom: 10,
-                }}>
-                  Your Existing Siding — Color Reference
-                </div>
+                  position: "absolute",
+                  bottom: -14,
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  width: 2,
+                  height: 12,
+                  backgroundColor: "#3D3D3D",
+                }} />
+              </div>
 
-                {/* Gradient bar */}
-                <div style={{
-                  width: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}>
-                  <div style={{
-                    width: "100%",
-                    maxWidth: "60%",
-                    height: 64,
-                    borderRadius: 8,
-                    border: "1px solid rgba(0,0,0,0.15)",
-                    background: "linear-gradient(to right, #C8BAA2, #C2AD92, #BEA888, #C2AD92, #C8BAA2)",
-                    position: "relative",
-                  }}>
-                    {/* Center tick mark */}
-                    <div style={{
-                      position: "absolute",
-                      bottom: -14,
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      width: 2,
-                      height: 12,
-                      backgroundColor: "#3D3D3D",
-                    }} />
-                  </div>
+              {/* Tick label */}
+              <div style={{
+                fontSize: 11,
+                fontWeight: 600,
+                color: "#3D3D3D",
+                textAlign: "center",
+                marginTop: 18,
+              }}>
+                ▲ Estimated Current Siding Color
+              </div>
 
-                  {/* Tick label */}
-                  <div style={{
-                    fontSize: 11,
-                    fontWeight: 600,
-                    color: "#3D3D3D",
-                    textAlign: "center",
-                    marginTop: 18,
-                  }}>
-                    ▲ Estimated Current Siding Color
-                  </div>
-
-                  {/* Helper text */}
-                  <div style={{
-                    fontSize: 12,
-                    fontStyle: "italic",
-                    color: "#2A2A2A",
-                    textAlign: "center",
-                    marginTop: 4,
-                  }}>
-                    Select a color above that closely matches this tone for HOA compliance.
-                  </div>
-                </div>
+              {/* Helper text */}
+              <div style={{
+                fontSize: 12,
+                fontStyle: "italic",
+                color: "#6B6B6B",
+                textAlign: "center",
+                marginTop: 4,
+              }}>
+                Select a color from the palette below that closely matches this tone for HOA compliance.
               </div>
             </div>
           </div>
