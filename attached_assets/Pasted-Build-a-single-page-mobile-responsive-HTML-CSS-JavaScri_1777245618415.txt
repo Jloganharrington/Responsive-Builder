@@ -1,0 +1,363 @@
+Build a single-page, mobile-responsive HTML/CSS/JavaScript web application 
+called the "NuHome Siding Selection Portal" for a specific insurance 
+restoration client: Daniel Gunn, 8505 Enochs Dr, Lorton, VA 22079. 
+He is currently deployed overseas and will be reviewing this on a 
+video call with his contractor.
+
+The app must feel premium, clean, and easy to navigate — think high-end 
+home design showroom, not a basic contractor form.
+
+---
+
+## BRAND & COLOR PALETTE
+
+Match the NuHome brand identity throughout the entire application:
+
+- Primary green (logo): #6DB33F — use for header background, selected 
+  card borders, active buttons, section accents
+- Dark green (hover/pressed states): #4E8C2A
+- Dark grey (body text, wordmark match): #3D3D3D
+- Near-black (section headers): #2A2A2A
+- Page background: #F7F8F5 (warm off-white)
+- Card background: #FFFFFF
+- Light green tint (dividers, card borders default): #D4E8C2
+- HOA Match badge ONLY: #E8A020 (amber gold — reserved exclusively 
+  for the HOA Match star badge and advisory banner)
+- White text on green backgrounds: #FFFFFF
+
+DO NOT use navy blue or bright gold as general UI colors. The only 
+warm accent allowed is #E8A020, used exclusively for HOA Match 
+callouts.
+
+HEADER: Display the NuHome logo image at top left using an <img> tag 
+with src="nuhome-logo.png" (user will place the file in the project 
+root). Next to or below the logo show the tagline: 
+"Licensed · Bonded · Insured | VA #2705-064938A" in small grey 
+text (#6B6B6B).
+
+BUTTONS — Primary action buttons ("Select This Option", 
+"Send My Selection to NuHome"): #6DB33F background, white text, 
+border-radius: 6px, hover darkens to #4E8C2A.
+
+CARD BADGES:
+- Card 1 "Covered by Insurance": #6DB33F background, white text
+- Card 2 "Popular Upgrade": #E8A020 background, #2A2A2A text
+- Card 3 "Premium": #2A2A2A background, #6DB33F text
+
+Page title: "Daniel Gunn — Siding Selection | NuHome Exteriors"
+
+---
+
+## SECTION 1 — HERO / WELCOME BANNER
+
+Display a personalized welcome message:
+"Welcome, Daniel. Your siding replacement has been fully approved by 
+State Farm (Claim #4695G528D). Below are your product and color 
+selections — your base option is fully covered by insurance, with 
+premium upgrades available at your cost."
+
+Display a clean summary bar with these exact values:
+- Insurance-Approved RCV: $15,834.14
+- Deductible: $2,000.00
+- ACV Payment Issued: $9,522.38
+- Recoverable Depreciation: $1,022.14
+- Project Size: 14 Squares (1,400 SF) — All 4 Elevations
+
+Include a placeholder property card labeled 
+"Your Home — 8505 Enochs Dr, Lorton VA" with a light grey 
+background (#EEEEEE) and a simple house icon. No real photo needed.
+
+---
+
+## SECTION 2 — PRODUCT TIER SELECTION
+
+Three cards: stacked vertically on mobile, side-by-side on desktop.
+Each card has a "Select This Option" button that smooth-scrolls 
+to the color section and loads that product's color palette.
+When a card is selected, highlight it with a #6DB33F border 
+and a green checkmark in the top-right corner. Unselected cards 
+use #D4E8C2 border.
+
+---
+
+### CARD 1 — Badge: "✓ COVERED BY INSURANCE — No Upgrade Cost"
+Badge: #6DB33F background, white text.
+
+Product: Mastic Ovation — Double 4" | .042" Thickness
+
+Pricing (display all lines):
+- Upgrade cost: $0 — fully covered by your State Farm approval
+- Your out-of-pocket upgrade: $0.00
+- Total Project RCV: $15,834.14
+
+Features:
+- Wind rated: 129 MPH
+- SNAP+LOCK+HOLD™ Panel Locking System
+- Hang-Tough™ Technology
+- SolarDefense Reflective Technology (select colors)
+- 9/16" panel projection
+- VIP Limited Lifetime Warranty
+
+Link: "View Product on Mastic.com ↗" 
+href="https://www.plygem.com/mastic/siding/ovation/?varid=double-4"
+target="_blank"
+
+---
+
+### CARD 2 — Badge: "⭐ POPULAR UPGRADE — Superior Thickness + Insulation"
+Badge: #E8A020 background, #2A2A2A text.
+
+Product: Mastic Carvedwood•44 — Double 4" | .044" Thickness 
+| Full Back Insulation
+
+Pricing (display all three lines):
+- Upgrade: +$168.99/sq × 14 sq
+- Extra out-of-pocket: +$2,365.86
+- New Total Project RCV: $18,200.00
+
+Features:
+- Wind rated: 153 MPH
+- 5/8" panel projection — deeper shadow lines than Ovation
+- T2 Locking System
+- Hang-Tough™ Technology
+- SolarDefense Reflective Technology (9 deep colors)
+- Duranyl 5000® Protection System
+- VIP Limited Lifetime Warranty
+
+Link: "View Product on Mastic.com ↗"
+href="https://www.plygem.com/mastic/siding/carvedwood-44/?varid=double-4"
+target="_blank"
+
+---
+
+### CARD 3 — Badge: "🏆 PREMIUM — Maximum Durability & Wind Protection"
+Badge: #2A2A2A background, #6DB33F text.
+
+Product: Mastic Quest — Double 4" | .046" Thickness 
+| Full Back Insulation
+
+Pricing (display all three lines):
+- Upgrade: +$318.99/sq × 14 sq
+- Extra out-of-pocket: +$4,465.86
+- New Total Project RCV: $20,300.00
+
+Features:
+- Wind rated: 163 MPH — highest in the Mastic lineup
+- Full 3/4" panel projection — deepest shadow line available
+- Patented T3-Lok® panel system — tightens under pressure
+- Double-thick nail hem
+- Hang-Tough™ Technology
+- Duranyl® 5000 Protection System
+- Cedar Colors with Kynar® 500 Protection (select colors)
+- VIP Limited Lifetime Warranty
+
+Link: "View Product on Mastic.com ↗"
+href="https://www.plygem.com/mastic/siding/quest/?varid=double-4"
+target="_blank"
+
+---
+
+## SECTION 3 — COLOR SELECTION
+
+After a product card is selected, smooth-scroll here and display 
+that product's color palette. Show a section header: "Choose Your Color" 
+with the selected product name displayed beneath it in grey.
+
+### HOA MATCH ADVISORY BANNER
+Display prominently at the top of the color section.
+Style: #E8A020 background, #2A2A2A text, warning icon ⚠️, 
+bold border-left: 4px solid #2A2A2A.
+
+Banner text:
+"⚠️ HOA COLOR MATCH ADVISORY
+Your existing siding is aluminum in a warm beige/greige tone. 
+To maintain HOA compliance, we strongly recommend selecting a color 
+close to your current exterior. Colors marked ★ HOA Match below are 
+the closest available matches across all product lines."
+
+### HOA Match Colors
+Flag the following swatches with a prominent gold star badge 
+(#E8A020 circle, white ★, overlaid top-right corner of swatch):
+- Sandtone — label badge: "★ HOA Match"
+- Pebblestone Clay — label badge: "★ HOA Match"
+- Desert Sand — label badge: "★ HOA Match"
+- Victorian Grey — label badge: "★ Possible Match" 
+  (subtitle below swatch: "Cooler tone")
+
+### Color Swatch Grid
+Render each color as a rounded square (70x70px) with its name 
+beneath it in small text (#3D3D3D). Clicking a swatch highlights 
+it with a 3px #6DB33F border and updates the live summary below. 
+HOA Match swatches get the gold star badge overlaid on top-right corner.
+
+On mobile: 4 columns. On desktop: 6 columns.
+Organize swatches under labeled group headers: 
+Light | Classic | Deep | Solar Defense | Cedar Colors (Quest only).
+
+Color hex values to use for swatches:
+
+LIGHT:
+- White: #F5F5F0
+- Almond: #EFDFCC
+- Cameo: #E8D5B7
+- Classic Cream: #F2E6C9
+- Colonial Yellow: #E8D08A
+- Desert Sand: #C9B99A
+- Linen: #E8DCC8
+- Sage: #B8C4A8
+- Sandtone: #C4B49A
+- Silver Grey: #B8BDB8
+- Tuscan Olive: #8B9068
+- Victorian Grey: #A8A898
+- Wicker: #C8B888
+
+CLASSIC:
+- Corn Silk: #DDD4A0
+- Everest: #D4CCB8
+- Harbor Grey: #909890
+- Pebblestone Clay: #C0AA8A
+- Scottish Thistle: #B8A8C0
+
+DEEP:
+- Deep Granite: #484840
+- English Wedgewood: #6878A0
+- Misty Shadow: #8898A8
+- Montana Suede: #907860
+- Quiet Willow: #687860
+- Rugged Canyon: #906848
+- Vintage Dublin: #587048
+- Autumn Harvest: #B87830
+- Bayou: #485848
+- Brunswick: #385040
+- Lakeshore Fern: #506858
+- Modern Iron: #586068
+- Portsmouth Blue: #405870
+- Russet Red: #884030
+
+SOLAR DEFENSE:
+- Natural Slate: #787870
+- Newport Bay: #485870
+- Brandy Wood: #784830
+- Red Brick: #883028
+- Alpine Forest: #304830
+- Deep Cavern: #383028
+- Rock Harbor: #484038
+- Whispering Timber: #786848
+- Woodland Retreat: #485038
+
+CEDAR COLORS (Quest only):
+- Cape Grey: #909888
+- Walnut: #705040
+- Cedar: #906848
+- Timber: #806040
+- Glacier Blue: #788898
+- Woodland Green: #506048
+
+### Color availability by product — only show colors 
+available for the selected product:
+
+OVATION D4:
+Light: White, Almond, Cameo, Classic Cream, Desert Sand★, Linen, 
+Sage, Sandtone★, Silver Grey, Tuscan Olive, Victorian Grey★, Wicker
+Classic: Corn Silk, Everest, Harbor Grey, Pebblestone Clay★, 
+Scottish Thistle
+Deep: Deep Granite, English Wedgewood, Misty Shadow, Montana Suede, 
+Quiet Willow, Rugged Canyon, Vintage Dublin
+Solar Defense: Brandy Wood, Natural Slate, Newport Bay, Red Brick
+
+CARVEDWOOD•44 D4:
+Light: White, Almond, Cameo, Classic Cream, Colonial Yellow, 
+Desert Sand★, Linen, Sage, Sandtone★, Silver Grey, Tuscan Olive, 
+Victorian Grey★, Wicker
+Classic: Corn Silk, Everest, Harbor Grey, Pebblestone Clay★, 
+Scottish Thistle
+Deep: Autumn Harvest, Bayou, Brunswick, Deep Granite, English 
+Wedgewood, Lakeshore Fern, Misty Shadow, Modern Iron, Montana Suede, 
+Quiet Willow, Rugged Canyon, Russet Red, Vintage Dublin
+Solar Defense: Alpine Forest, Brandy Wood, Deep Cavern, Natural Slate, 
+Newport Bay, Red Brick, Rock Harbor, Whispering Timber, Woodland Retreat
+
+QUEST D4:
+Light: White, Almond, Cameo, Classic Cream, Colonial Yellow, 
+Desert Sand★, Linen, Sage, Sandtone★, Silver Grey, Tuscan Olive, 
+Victorian Grey★, Wicker
+Classic: Corn Silk, Everest, Harbor Grey, Pebblestone Clay★, 
+Scottish Thistle
+Deep: Autumn Harvest, Deep Granite, English Wedgewood, Lakeshore Fern, 
+Misty Shadow, Montana Suede, Portsmouth Blue, Quiet Willow, 
+Rugged Canyon, Russet Red
+Cedar Colors: Cape Grey, Walnut, Cedar, Timber, Glacier Blue, 
+Woodland Green
+
+---
+
+## SECTION 4 — LIVE SELECTION SUMMARY + SUBMISSION
+
+Display a "Your Current Selection" summary card that updates 
+dynamically as the user makes choices. Style with #FFFFFF background, 
+#D4E8C2 border, and a #6DB33F left accent bar.
+
+Summary fields (all update live):
+- Property: 8505 Enochs Dr, Lorton, VA 22079
+- Claim #: 4695G528D
+- Product: [selected tier — updates live, shows "—" if none selected]
+- Thickness: [updates live]
+- Color: [selected color name — updates live, shows "—" if none]
+- Color Preview: small 30x30px square matching selected swatch hex
+- Insurance Covers: $15,834.14
+- Your Upgrade Cost: $0.00 / +$2,365.86 / +$4,465.86 (updates live)
+- Total Project RCV: $15,834.14 / $18,200.00 / $20,300.00 (updates live)
+
+Below the summary, a submission form:
+- Name: pre-filled "Daniel Gunn" — read-only
+- Property: pre-filled "8505 Enochs Dr, Lorton, VA 22079" — read-only
+- Claim #: pre-filled "4695G528D" — read-only
+- Selected Product: auto-filled from selection — read-only
+- Selected Color: auto-filled from selection — read-only
+- Notes / Questions: open textarea, placeholder text: 
+  "Any questions or notes for your NuHome coordinator..."
+- Submit button: "Send My Selection to NuHome" 
+  (#6DB33F background, white text, hover: #4E8C2A)
+
+On submit: log all form field values to the browser console 
+(no backend — email integration will be added separately).
+Display an in-page confirmation message in green:
+"✓ Your selection has been received. The NuHome team will 
+confirm your choices on your next call."
+
+---
+
+## SECTION 5 — FOOTER
+
+Style: #2A2A2A background, white and #6DB33F text.
+
+Display:
+- NuHome Exteriors, Inc.
+- VA Lic. #2705-064938A | MD MHIC #05-122697
+- (866) 684-6631 | www.nuhomeonline.com
+- "Questions about your claim or selections? Contact your 
+  NuHome project coordinator."
+
+---
+
+## TECHNICAL REQUIREMENTS
+
+- Single HTML file — embedded CSS and JS only
+- Tailwind CDN is acceptable but not required
+- Mobile-first, fully responsive
+- No backend, no external API dependencies
+- All color swatches rendered via CSS background-color only — 
+  no image dependencies for swatches
+- Smooth scroll to color section when a product card is selected
+- Product cards visually update on selection: #6DB33F border, 
+  green checkmark top-right corner
+- HOA Match star badge: #E8A020 filled circle, white ★ symbol, 
+  positioned absolute top-right corner of swatch tile
+- All plygem.com product links open in new tab (target="_blank")
+- Color grid shows ONLY colors available for the currently 
+  selected product — grid re-renders on product change
+- On load: no product selected, no color selected, summary 
+  card shows "—" for unselected fields
+- On mobile: product cards stack vertically, color grid is 4 columns
+- On desktop: product cards are 3 columns side-by-side, 
+  color grid is 6 columns

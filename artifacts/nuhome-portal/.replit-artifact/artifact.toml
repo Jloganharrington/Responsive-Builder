@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "NuHome Siding Selection Portal"
+version = "1.0.0"
+id = "artifacts/nuhome-portal"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18769
+
+[services.development]
+run = "pnpm --filter @workspace/nuhome-portal run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/nuhome-portal", "run", "build" ]
+publicDir = "artifacts/nuhome-portal/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18769"
+BASE_PATH = "/"
