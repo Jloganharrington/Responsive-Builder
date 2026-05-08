@@ -6,7 +6,6 @@ import { desc } from "drizzle-orm";
 const router: IRouter = Router();
 
 const DEST_EMAIL = "LHarrington@nuhomeonline.com";
-const DASHBOARD_PASSWORD = process.env["DASHBOARD_PASSWORD"] ?? "NuHome2025!";
 
 function buildTransporter() {
   return nodemailer.createTransport({
@@ -17,7 +16,6 @@ function buildTransporter() {
       user: process.env["SMTP_USER"],
       pass: process.env["SMTP_PASS"],
     },
-    tls: { rejectUnauthorized: false },
   });
 }
 
@@ -78,12 +76,11 @@ router.post("/submit-selection", async (req, res) => {
     return;
   }
 
+  // Save to DB — non-blocking: log failure but continue to send email
   try {
     await db.insert(submissionsTable).values({ name, property, claim, product, color, notes: notes ?? "" });
   } catch (dbErr) {
-    req.log.error({ err: dbErr }, "Failed to save submission to DB");
-    res.status(500).json({ error: "Failed to save submission" });
-    return;
+    req.log.error({ err: dbErr }, "Failed to save submission to DB — continuing to send email");
   }
 
   try {
@@ -104,8 +101,15 @@ router.post("/submit-selection", async (req, res) => {
 });
 
 router.get("/submissions", async (req, res) => {
+  const dashboardPassword = process.env["DASHBOARD_PASSWORD"];
+  if (!dashboardPassword) {
+    req.log.error("DASHBOARD_PASSWORD environment variable is not set");
+    res.status(503).json({ error: "Dashboard not configured" });
+    return;
+  }
+
   const auth = req.headers["x-dashboard-password"];
-  if (auth !== DASHBOARD_PASSWORD) {
+  if (auth !== dashboardPassword) {
     res.status(401).json({ error: "Unauthorized" });
     return;
   }
