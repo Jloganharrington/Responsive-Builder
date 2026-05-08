@@ -226,6 +226,8 @@ export default function Portal() {
   const [selectedColor, setSelectedColor] = useState<ColorSwatch | null>(null);
   const [notes, setNotes] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const colorSectionRef = useRef<HTMLDivElement>(null);
 
   const product = selectedProduct ? PRODUCTS[selectedProduct] : null;
@@ -239,18 +241,38 @@ export default function Portal() {
     }, 80);
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const formData = {
-      name: "Daniel Gunn",
-      property: "8505 Enochs Dr, Lorton, VA 22079",
-      claim: "4695G528D",
-      product: product ? `${product.name} — ${product.sub}` : "—",
-      color: selectedColor?.name ?? "—",
-      notes,
-    };
-    console.log("NuHome Selection Submission:", formData);
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError(null);
+
+    const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+    try {
+      const res = await fetch(`${BASE}/api/submit-selection`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: "Daniel Gunn",
+          property: "8505 Enochs Dr, Lorton, VA 22079",
+          claim: "4695G528D",
+          product: product ? `${product.name} — ${product.sub}` : "—",
+          color: selectedColor?.name ?? "—",
+          notes,
+        }),
+      });
+
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error((body as { error?: string }).error ?? "Request failed");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setSubmitError("Submission failed. Please call NuHome directly at (866) 684-6631.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -917,28 +939,43 @@ export default function Portal() {
                 />
               </div>
 
+              {submitError && (
+                <div style={{
+                  backgroundColor: "#FEF2F2",
+                  border: "1px solid #FECACA",
+                  borderRadius: 6,
+                  padding: "12px 16px",
+                  fontSize: 13,
+                  color: "#B91C1C",
+                  marginBottom: 16,
+                }}>
+                  {submitError}
+                </div>
+              )}
+
               <button
                 type="submit"
                 data-testid="button-submit"
+                disabled={submitting}
                 style={{
-                  backgroundColor: "#6DB33F",
+                  backgroundColor: submitting ? "#9DC87A" : "#6DB33F",
                   color: "#fff",
                   border: "none",
                   borderRadius: 6,
                   padding: "14px 32px",
                   fontSize: 15,
                   fontWeight: 700,
-                  cursor: "pointer",
+                  cursor: submitting ? "not-allowed" : "pointer",
                   display: "flex",
                   alignItems: "center",
                   gap: 10,
                   transition: "background-color 0.2s",
                 }}
-                onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#4E8C2A")}
-                onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#6DB33F")}
+                onMouseEnter={e => { if (!submitting) e.currentTarget.style.backgroundColor = "#4E8C2A"; }}
+                onMouseLeave={e => { if (!submitting) e.currentTarget.style.backgroundColor = "#6DB33F"; }}
               >
                 <Shield size={18} />
-                Send My Selection to NuHome
+                {submitting ? "Sending…" : "Send My Selection to NuHome"}
               </button>
             </form>
           ) : (

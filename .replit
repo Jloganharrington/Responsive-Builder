@@ -20,5 +20,21 @@ path = "scripts/post-merge.sh"
 timeoutMs = 20000
 
 [[ports]]
+localPort = 8080
+externalPort = 8080
+
+[[ports]]
+localPort = 8081
+externalPort = 8081
+
+[[ports]]
 localPort = 18769
 externalPort = 80
+
+[userenv]
+
+[userenv.shared]
+SMTP_HOST = "mail.nuhomeonline.com"
+SMTP_PORT = "587"
+SMTP_USER = "lharrington@nuhomeonline.com"
+SMTP_FROM = "lharrington@nuhomeonline.com"
